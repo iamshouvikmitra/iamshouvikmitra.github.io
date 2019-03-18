@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time Table - CSE BDA</title>
+    <link rel="icon" href="https://cdn4.iconfinder.com/data/icons/elasto-contact-us/26/00-CONTACTS_--06-512.png" sizes="16x16" type="image/png">
+</head>
+
+<body>
+    <style>
+        .t {
+            display: none;
+            overflow-x:auto;
+        }
+
+        .container {
+            margin: 12px;
+            padding: 12px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    <div class="container">
+        <div class="t" id="1">
+            <table style="width:100%" id="t1">
+                <tr>
+                    <th>Time</th>
+                    <th>Subject</th>
+                </tr>
+            </table>
+        </div>
+        <div class="t" id="2">
+            <table style="width:100%" id="t2">
+                <tr>
+                    <th>Time</th>
+                    <th>Subject</th>
+                </tr>
+            </table>
+        </div>
+        <div class="t" id="3">
+            <table style="width:100%" id="t3">
+                <tr>
+                    <th>Time</th>
+                    <th>Subject</th>
+                </tr>
+            </table>
+        </div>
+        <div class="t" id="4">
+            <table style="width:100%" id="t4">
+                <tr>
+                    <th>Time</th>
+                    <th>Subject</th>
+                </tr>
+            </table>
+        </div>
+        <div class="t" id="5">
+            <table style="width:100%" id="t5">
+                <tr>
+                    <th>Time</th>
+                    <th>Subject</th>
+                </tr>
+            </table>
+        </div>
+        <div class="t" id="6">
+            <table style="width:100%" id="t6">
+                <tr>
+                    <th>Time</th>
+                    <th>Subject</th>
+                </tr>
+            </table>
+        </div>
+        <div class="t" id="7">You have no classes today</div>
+    </div>
+
+    <script type="text/javascript">
+        var dt = new Date();
+        var day = dt.getDay().toString();
+        // Data
+        const timetable = {}
+        timetable['1'] = {
+            "09 - 10": "Economics",
+            "10 - 11": ".NET",
+            "11 - 12": "Intelligent Systems",
+            "12 - 01": "",
+            "02 - 03": "OOAD",
+            "03 - 04": "Compiler Design",
+        }
+        timetable['2'] = {
+            "09 - 10": ".NET LAB",
+            "10 - 11": ".NET LAB",
+            "11 - 12": "Intelligent Systems",
+            "12 - 01": "",
+            "02 - 03": "Economics",
+            "03 - 04": "DBA",
+        }
+        timetable['3'] = {
+            "09 - 10": "OOAD",
+            "10 - 11": "CG",
+            "11 - 12": ".NET",
+            "12 - 01": "DBA",
+            "02 - 03": "CG LAB",
+            "03 - 04": "CG LAB",
+        }
+        timetable['4'] = {
+            "09 - 10": "Intelligent Systems LAB",
+            "10 - 11": "Intelligent Systems LAB",
+            "11 - 12": "Computer Graphics",
+            "12 - 01": "Compiler Design",
+            "02 - 03": "DBA",
+            "03 - 04": "",
+        }
+        timetable['5'] = {
+            "09 - 10": "Compiler Design LAB",
+            "10 - 11": "Compiler Design LAB",
+            "11 - 12": ".NET",
+            "12 - 01": "Computer Graphics",
+            "02 - 03": "",
+            "03 - 04": "Compiler Design",
+        }
+        timetable['6'] = {
+            "09 - 10": "OOAD",
+            "10 - 11": "Intelligent Systems",
+        }
+
+        // Forming Table
+        document.getElementById(day).style.display = "block"
+        var table = document.getElementById("t" + day);
+        var i = 1;
+        Object.keys(timetable[day]).forEach(function (key) {
+            // Create an empty <tr> element and add it to the 1st position of the table:
+            var row = table.insertRow(i++);
+
+            // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+
+            // Add some text to the new cells:
+            cell1.innerHTML = key;
+            cell2.innerHTML = timetable[day][key];
+        });
+
+    </script>
+</body>
+
+</html>
